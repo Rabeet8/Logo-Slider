@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="section">
+            <ul class="logos">
+                <li class="slide-logo"><img src="logo/lw3.jpg" alt=""></li>
+                <li><img src="logo/blockship.jpg" alt=""></li>
+                <li><img src="logo/buildspace.jpg" alt=""></li>
+                <li><img src="logo/DD.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="slider">
+            <div class="thumb"><span></span>  </div>
+            <div class="progress-bar">  </div>
+            <input type="range" min="0" max="100" value="0">
+        </div>
+    </div>
+    <script>
+        const body = document.querySelector("body");
+        const logo= document.querySelector(".slide-logo");
+        const input = document.querySelector("input");
+        const bar = document.querySelector(".progress-bar");
+        const thumb = document.querySelector(".thumb");
+        input.oninput = ()=>{
+          let sliderValue = input.value;
+          thumb.style.left = sliderValue + '%';
+          bar.style.width = sliderValue + '%';
+          if(sliderValue < 20){
+            logo.style.marginTop = "0px";
+            body.classList.add("lw3");
+            body.classList.remove("blockship");
+            body.classList.remove("buildspace");
+            body.classList.remove("DD");
+          }
+          if(sliderValue >= 20){
+            logo.style.marginTop = "-140px";
+            body.classList.add("blockship");
+            body.classList.remove("buildspace");
+            body.classList.remove("lw3");
+            body.classList.remove("DD");
+          }
+          if(sliderValue >= 40){
+            logo.style.marginTop = "-280px";
+            body.classList.add("buildspace");
+            body.classList.remove("blockship");
+            body.classList.remove("lw3");
+            body.classList.remove("DD");
+          }
+          if(sliderValue >= 70){
+            logo.style.marginTop = "-420px";
+            body.classList.add("DD");
+            body.classList.remove("buildspace");
+            body.classList.remove("blockship");
+            body.classList.remove("lw3");
+          }
+        //   if(sliderValue >= 80){
+        //     logo.style.marginTop = "-560px";
+        //   }
+        }
+      </script>
+</body>
+</html>
