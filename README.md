@@ -1,2 +1,2 @@
 # Logo-Slider
-This is a basic slider which you can slide to see different web3 communities logos 
+This is a basic slider which you can slide to see different  logos of web3 communities
